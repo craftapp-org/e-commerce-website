@@ -4,7 +4,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install --legacy-peer-deps
 COPY . .
-RUN rm -rf .next
+RUN rm -rf .next/ node_modules/ dist/
 RUN npm run build
 
 FROM node:18-alpine AS runner
